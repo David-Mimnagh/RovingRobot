@@ -17,7 +17,7 @@ If you are running this using the dotnet run command:
 Ensure you have the latest .NET 6 SDK installed, which can be found here: (https://dotnet.microsoft.com/en-us/download)
 ```
 * Firstly, download the latest release from here [Latest Release](https://github.com/David-Mimnagh/RovingRobot/releases/latest).
-* Once the file has been downloaded, extract it to a suibtable location.
+* Once the file has been downloaded, extract it to a suitable location.
 * Open your terminal within the `RovingRobot-X.X.X` folder where `X.X.X` is the release version. 
 * Run the following command: `cd RovingRobot && dotnet run`
 * That's it!
