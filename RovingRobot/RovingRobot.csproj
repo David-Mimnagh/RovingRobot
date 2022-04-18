@@ -7,34 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Files\CommandSet_1.txt" />
-    <None Remove="Files\CommandSet_2.txt" />
-    <None Remove="Files\CommandSet_3.txt" />
-    <None Remove="Files\ExampleInput_1.txt" />
-    <None Remove="Files\ExampleInput_2.txt" />
-    <None Remove="Files\ExampleInput_3.txt" />
-  </ItemGroup>
 
-  <ItemGroup>
-    <Content Include="Files\CommandSet_1.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Files\CommandSet_2.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Files\CommandSet_3.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Files\ExampleInput_1.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Files\ExampleInput_2.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Files\ExampleInput_3.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
+	<ItemGroup>
+		<Content Include="Files\**">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
 </Project>
