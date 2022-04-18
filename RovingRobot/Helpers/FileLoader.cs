@@ -13,12 +13,17 @@ namespace RovingRobot.Helpers
             string fileExtension = Path.GetExtension(fileName);
             return ProgramConstants.SUPPORTED_FILETYPES.Contains(fileExtension.ToLower());
         }
+        public List<string> LoadPossibleInputFiles()
+        {
+            return Directory.GetFiles(@"Files/", "*.txt").ToList();
+
+        }
         public List<string> LoadCommandsFromFile(string fileName)
         {
             List<string> commands = new List<string>();
             try 
             {
-                return File.ReadLines($"Files/{fileName}").ToList();
+                return File.ReadLines(fileName).ToList();
             }
             catch (Exception ex)
             {

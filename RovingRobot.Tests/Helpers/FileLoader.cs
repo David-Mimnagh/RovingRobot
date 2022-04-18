@@ -26,9 +26,17 @@ namespace RovingRobot.Tests.Helpers
             Assert.Equal(result, expectedValidityValue);
         }
         [Fact]
+        public void LoadPossibleInputFiles_LoadsTheCorrectAmountOfFiles()
+        {
+            int expectedFileCount = System.IO.Directory.GetFiles(@"Files/", "*.txt").Length;
+            var result = _fileLoader.LoadPossibleInputFiles();
+
+            Assert.Equal(result.Count, expectedFileCount);
+        }
+        [Fact]
         public void LoadCommandsFromFile_LoadsTheCommandsCorrectly()
         {
-            var result = _fileLoader.LoadCommandsFromFile("TestCommandSet_1.txt");
+            var result = _fileLoader.LoadCommandsFromFile("Files/TestCommandSet_1.txt");
 
             Assert.Equal(result, _testData.TestCommandSet_1CommandList);
         }
