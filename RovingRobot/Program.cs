@@ -27,7 +27,7 @@ while (fileIndexChoice <= 0 || fileIndexChoice > commandInputFiles.Count)
 {
     Console.WriteLine("Please enter a number from the corresponding options above.");
     Console.Write("File Number Choice: ");
-    string choice = Console.ReadLine();
+    string? choice = Console.ReadLine();
     bool isNumber = int.TryParse(choice, out fileIndexChoice);
     if (!isNumber)
     {

@@ -16,10 +16,17 @@ namespace RovingRobot.Helpers
                     .Where(t => t.IsDefined(typeof(T))))
                     .ToList();
         }
-        static internal IBaseCommand GetImplementingCommandClass(List<Type> allCommands, string command, Models.Robot robot, Helpers.CommandValidator commandValidator)
+        static internal IBaseCommand? GetImplementingCommandClass(List<Type> allCommands, string command, Models.Robot robot, Helpers.CommandValidator commandValidator)
         {
-            string commandToRun = allCommands.FirstOrDefault(c => c.GetCustomAttribute<RovingRobot.Helpers.CommandAttribute>().CommandType.Contains(command)).FullName;
-            Type commandType = Type.GetType(commandToRun);
+            if (allCommands == null || !allCommands.Any())
+            {
+                Console.WriteLine("Trouble finding implementing classes of IBaseCommand. Exiting");
+                return null;
+            }
+            string? commandToRun = allCommands.First(c => c.GetCustomAttribute<CommandAttribute>()!.CommandType.Contains(command)).FullName;
+            if (commandToRun == null) return null;
+            Type? commandType = Type.GetType(commandToRun);
+            if (commandType == null) return null;
             return Activator.CreateInstance(commandType, robot, commandValidator) as IBaseCommand;
         }
     }

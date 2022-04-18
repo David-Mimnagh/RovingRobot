@@ -16,9 +16,10 @@ namespace RovingRobot.Tests.Models
             var newRobot = new RovingRobot.Models.Robot();
 
             Tuple<int, int> startingPosition = new Tuple<int, int>(-1, -1);
+            int defuaultHitsAndCounter = 0;
             Assert.Equal(newRobot.FacingDirection, RovingRobot.Helpers.ProgramConstants.FACE_NORTH_COMMAND);
-            Assert.Equal(newRobot.TableBoundryHits, 0);
-            Assert.Equal(newRobot.MoveCommandCounter, 0);
+            Assert.Equal(newRobot.TableBoundryHits, defuaultHitsAndCounter);
+            Assert.Equal(newRobot.MoveCommandCounter, defuaultHitsAndCounter);
             Assert.Equal(newRobot.StartingPosition, startingPosition);
             Assert.Equal(newRobot.CurrentPosition, startingPosition);
         }
@@ -88,7 +89,7 @@ namespace RovingRobot.Tests.Models
         [Fact]
         public void ShouldHandleMovementCorrectlyBasedOnTheCurrentDirectionAndPosition_NORTH()
         {
-            _testData.startingRobot.MoveCommandCounter = 0;
+            _testData.startingRobot.MoveCommandCounter = _testData.defaultCounter;
             Tuple<int, int> currentPos = new Tuple<int, int>(0,4);
             string currentFacingDirection = RovingRobot.Helpers.ProgramConstants.FACE_NORTH_COMMAND;
             Tuple<int, int> expectedPos = currentPos;
@@ -97,7 +98,7 @@ namespace RovingRobot.Tests.Models
             _testData.startingRobot.HandleMovement();
             //Dangerous movement
             Assert.Equal(_testData.startingRobot.CurrentPosition, expectedPos);
-            Assert.Equal(_testData.startingRobot.MoveCommandCounter, 0);
+            Assert.Equal(_testData.startingRobot.MoveCommandCounter, _testData.defaultCounter);
 
             currentPos = new Tuple<int, int>(0, 3);
             currentFacingDirection = RovingRobot.Helpers.ProgramConstants.FACE_NORTH_COMMAND;
@@ -107,13 +108,13 @@ namespace RovingRobot.Tests.Models
             _testData.startingRobot.HandleMovement();
             //valid movement
             Assert.Equal(_testData.startingRobot.CurrentPosition, expectedPos);
-            Assert.Equal(_testData.startingRobot.MoveCommandCounter, 1);
+            Assert.Equal(_testData.startingRobot.MoveCommandCounter, _testData.defaultCounter + 1);
         }
 
         [Fact]
         public void ShouldHandleMovementCorrectlyBasedOnTheCurrentDirectionAndPosition_EAST()
         {
-            _testData.startingRobot.MoveCommandCounter = 0;
+            _testData.startingRobot.MoveCommandCounter = _testData.defaultCounter;
             Tuple<int, int> currentPos = new Tuple<int, int>(4, 0);
             string currentFacingDirection = RovingRobot.Helpers.ProgramConstants.FACE_EAST_COMMAND;
             Tuple<int, int> expectedPos = currentPos;
@@ -122,7 +123,7 @@ namespace RovingRobot.Tests.Models
             _testData.startingRobot.HandleMovement();
             //Dangerous movement
             Assert.Equal(_testData.startingRobot.CurrentPosition, expectedPos);
-            Assert.Equal(_testData.startingRobot.MoveCommandCounter, 0);
+            Assert.Equal(_testData.startingRobot.MoveCommandCounter, _testData.defaultCounter);
 
             currentPos = new Tuple<int, int>(3, 0);
             currentFacingDirection = RovingRobot.Helpers.ProgramConstants.FACE_EAST_COMMAND;
@@ -132,13 +133,13 @@ namespace RovingRobot.Tests.Models
             _testData.startingRobot.HandleMovement();
             //valid movement
             Assert.Equal(_testData.startingRobot.CurrentPosition, expectedPos);
-            Assert.Equal(_testData.startingRobot.MoveCommandCounter, 1);
+            Assert.Equal(_testData.startingRobot.MoveCommandCounter, _testData.defaultCounter + 1);
         }
 
         [Fact]
         public void ShouldHandleMovementCorrectlyBasedOnTheCurrentDirectionAndPosition_SOUTH()
         {
-            _testData.startingRobot.MoveCommandCounter = 0;
+            _testData.startingRobot.MoveCommandCounter = _testData.defaultCounter;
             Tuple<int, int> currentPos = new Tuple<int, int>(0, 0);
             string currentFacingDirection = RovingRobot.Helpers.ProgramConstants.FACE_SOUTH_COMMAND;
             Tuple<int, int> expectedPos = currentPos;
@@ -147,7 +148,7 @@ namespace RovingRobot.Tests.Models
             _testData.startingRobot.HandleMovement();
             //Dangerous movement
             Assert.Equal(_testData.startingRobot.CurrentPosition, expectedPos);
-            Assert.Equal(_testData.startingRobot.MoveCommandCounter, 0);
+            Assert.Equal(_testData.startingRobot.MoveCommandCounter, _testData.defaultCounter);
 
             currentPos = new Tuple<int, int>(0, 1);
             currentFacingDirection = RovingRobot.Helpers.ProgramConstants.FACE_SOUTH_COMMAND;
@@ -157,13 +158,13 @@ namespace RovingRobot.Tests.Models
             _testData.startingRobot.HandleMovement();
             //valid movement
             Assert.Equal(_testData.startingRobot.CurrentPosition, expectedPos);
-            Assert.Equal(_testData.startingRobot.MoveCommandCounter, 1);
+            Assert.Equal(_testData.startingRobot.MoveCommandCounter, _testData.defaultCounter + 1);
         }
 
         [Fact]
         public void ShouldHandleMovementCorrectlyBasedOnTheCurrentDirectionAndPosition_WEST()
         {
-            _testData.startingRobot.MoveCommandCounter = 0;
+            _testData.startingRobot.MoveCommandCounter = _testData.defaultCounter;
             Tuple<int, int> currentPos = new Tuple<int, int>(0, 1);
             string currentFacingDirection = RovingRobot.Helpers.ProgramConstants.FACE_WEST_COMMAND;
             Tuple<int, int> expectedPos = currentPos;
@@ -172,7 +173,7 @@ namespace RovingRobot.Tests.Models
             _testData.startingRobot.HandleMovement();
             //Dangerous movement
             Assert.Equal(_testData.startingRobot.CurrentPosition, expectedPos);
-            Assert.Equal(_testData.startingRobot.MoveCommandCounter, 0);
+            Assert.Equal(_testData.startingRobot.MoveCommandCounter, _testData.defaultCounter);
 
             currentPos = new Tuple<int, int>(1, 1);
             currentFacingDirection = RovingRobot.Helpers.ProgramConstants.FACE_WEST_COMMAND;
@@ -182,7 +183,7 @@ namespace RovingRobot.Tests.Models
             _testData.startingRobot.HandleMovement();
             //valid movement
             Assert.Equal(_testData.startingRobot.CurrentPosition, expectedPos);
-            Assert.Equal(_testData.startingRobot.MoveCommandCounter, 1);
+            Assert.Equal(_testData.startingRobot.MoveCommandCounter, _testData.defaultCounter + 1);
         }
     }
 }

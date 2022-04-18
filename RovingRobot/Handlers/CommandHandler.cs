@@ -20,7 +20,7 @@ namespace RovingRobot.Handlers
             allCommands = Helpers.ProgramUtilities.GetClassesWithCustomAttribute<RovingRobot.Helpers.CommandAttribute>();
         }
 
-        public void ExecuteCommand(string command)
+        public void ExecuteCommand(string? command)
         {
            string? subCommand = null;
            if(String.IsNullOrEmpty(command)) 
@@ -38,17 +38,29 @@ namespace RovingRobot.Handlers
             {
                 subCommand = command;
             }
-            IBaseCommand commandClass = Helpers.ProgramUtilities.GetImplementingCommandClass(allCommands, command, RoverTheRovingRobot, _commandValidator);
-            commandClass.ExecuteCommand(subCommand);
-        }
-        public void RunCommandList(List<string> commands)
-        {
-            if (!allCommands.Any())
+
+            if (allCommands == null || !allCommands.Any())
             {
                 Console.WriteLine("Trouble finding implementing classes of IBaseCommand. Exiting");
                 return;
             }
-            if (!_commandValidator.IsValidCommandList(commands))
+
+            IBaseCommand? commandClass = Helpers.ProgramUtilities.GetImplementingCommandClass(allCommands, command, RoverTheRovingRobot, _commandValidator);
+            if(commandClass == null)
+            {
+                Console.WriteLine($"Trouble finding implementing class of IBaseCommand for command: {command}. Exiting");
+                return;
+            }
+            commandClass.ExecuteCommand(subCommand);
+        }
+        public void RunCommandList(List<string>? commands)
+        {
+            if (allCommands == null || !allCommands.Any())
+            {
+                Console.WriteLine("Trouble finding implementing classes of IBaseCommand. Exiting");
+                return;
+            }
+            if (commands == null || !_commandValidator.IsValidCommandList(commands))
             {
                 Console.WriteLine("Invalid command list. Please make sure your command list contains a place command");
                 return;

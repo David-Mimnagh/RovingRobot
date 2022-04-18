@@ -8,6 +8,7 @@ namespace RovingRobot.Tests.Files
 {
     internal class TestData
     {
+        internal int defaultCounter = 0;
         internal List<string> TestCommandSet_1CommandList = new List<string>()
         {
             {"PLACE 3,2,WEST"},
