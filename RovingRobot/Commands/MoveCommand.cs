@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace RovingRobot.Commands
 {
     [Command("MOVE")]
-    internal class MoveCommand : IBaseCommand
+    public class MoveCommand : IBaseCommand
     {
         public Robot Robot { get; set; }
         public CommandValidator CommandValidator { get; set; }

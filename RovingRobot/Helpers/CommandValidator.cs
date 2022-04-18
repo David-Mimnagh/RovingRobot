@@ -10,8 +10,8 @@ namespace RovingRobot.Helpers
             return Regex.Replace(command.ToUpper(), @"\s+", "");
         }
         public bool IsValidPosition(int x, int y)
-        {   bool isValidX = x >= 0 && x <= ProgramConstants.MAX_BOARD_WIDTH_HEIGHT; 
-            bool isValidY = y >= 0 && y <= ProgramConstants.MAX_BOARD_WIDTH_HEIGHT;
+        {   bool isValidX = x >= 0 && x < ProgramConstants.MAX_BOARD_WIDTH_HEIGHT; 
+            bool isValidY = y >= 0 && y < ProgramConstants.MAX_BOARD_WIDTH_HEIGHT;
             return (isValidX && isValidY);
         }
         public bool IsValidRotationCommand(string rotation)

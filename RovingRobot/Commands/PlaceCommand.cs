@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace RovingRobot.Commands
 {
     [Command("PLACE")]
-    internal class PlaceCommand : IBaseCommand
+    public class PlaceCommand : IBaseCommand
     {
         public Robot Robot { get; set; }
         public CommandValidator CommandValidator { get; set; }
@@ -24,9 +24,9 @@ namespace RovingRobot.Commands
         {
             if (string.IsNullOrEmpty(subCommand) || !subCommand.Contains(','))
             {
-                Console.WriteLine(@"Invalid Place command found.");
-                Console.WriteLine(@"Please provide a following sub command for and primary place command");
-                Console.WriteLine(@"in the following format X,Y,FACING DIRECTION(NORTH,EAST,SOUTH, OR WEST)");
+                Console.WriteLine("Invalid Place command found.");
+                Console.WriteLine("Please provide a following sub command for and primary place command");
+                Console.WriteLine("in the following format X,Y,FACING DIRECTION(NORTH,EAST,SOUTH, OR WEST)");
                 return;
             }
 

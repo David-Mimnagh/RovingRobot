@@ -10,7 +10,7 @@ namespace RovingRobot.Tests.Files
     {
         internal List<string> TestCommandSet_1CommandList = new List<string>()
         {
-            {"PLACE 3 2 WEST"},
+            {"PLACE 3,2,WEST"},
             {"MOVE"},
             {"MOVE"},
             {"MOVE"},
@@ -19,6 +19,71 @@ namespace RovingRobot.Tests.Files
             {"LEFT"},
             {"MOVE"},
             {"REPORT"}
+        };
+        public RovingRobot.Models.Robot RobotAfterCommandSet1 = new RovingRobot.Models.Robot()
+        {
+            CurrentPosition = new Tuple<int, int>(0, 3),
+            FacingDirection = "WEST",
+            MoveCommandCounter = 4,
+            TableBoundryHits = 1,
+            StartingPosition = new Tuple<int, int>(3,2)
+        };
+        internal List<string> TestCommandSet_2CommandList = new List<string>()
+        {
+            {"MOVE"},
+            {"MOVE"},
+            {"RIGHT"},
+            {"MOVE"},
+            {"PLACE 1,5,EAST"},
+            {"MOVE"},
+            {"LEFT"},
+            {"MOVE"},
+            {"MOVE"},
+            {"MOVE"},
+            {"LEFT"},
+            {"PLACE 6,1,NORTH"},
+            {"PLACE 4,4,NORTH"},
+            {"MOVE"},
+            {"LEFT"},
+            {"REPORT"}
+        };
+        public RovingRobot.Models.Robot RobotAfterCommandSet2 = new RovingRobot.Models.Robot()
+        {
+            CurrentPosition = new Tuple<int, int>(4,4),
+            FacingDirection = "WEST",
+            MoveCommandCounter = 0,
+            TableBoundryHits = 1,
+            StartingPosition = new Tuple<int, int>(4, 4)
+        };
+        internal List<string> TestCommandSet_3CommandList = new List<string>()
+        {
+            {"PLACE 0,0,EAST"},
+            {"MOVE"},
+            {"MOVE"},
+            {"LEFT"},
+            {"MOVE"},
+            {"PLACE 3,3,EAST"},
+            {"MOVE"},
+            {"LEFT"},
+            {"MOVE"},
+            {"MOVE"},
+            {"MOVE"},
+            {"LEFT"},
+            {"PLACE 6,1,NORTH"},
+            {"PLACE 0,0,NORTH"},
+            {"MOVE"},
+            {"RIGHT"},
+            {"MOVE"},
+            {"MOVE"},
+            {"REPORT"}
+        };
+        public RovingRobot.Models.Robot RobotAfterCommandSet3 = new RovingRobot.Models.Robot()
+        {
+            CurrentPosition = new Tuple<int, int>(2, 1),
+            FacingDirection = "EAST",
+            MoveCommandCounter = 8,
+            TableBoundryHits = 2,
+            StartingPosition = new Tuple<int, int>(0, 0)
         };
 
         internal List<string> ValidCommandList1 = new List<string>()

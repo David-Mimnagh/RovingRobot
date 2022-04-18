@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace RovingRobot.Handlers
 {
-    internal class CommandHandler
+    public class CommandHandler
     {
         Helpers.CommandValidator _commandValidator;
-        Models.Robot RoverTheRovingRobot;
+        public Models.Robot RoverTheRovingRobot;
         List<Type>? allCommands;
         public CommandHandler()
         {
@@ -20,10 +20,10 @@ namespace RovingRobot.Handlers
             allCommands = Helpers.ProgramUtilities.GetClassesWithCustomAttribute<RovingRobot.Helpers.CommandAttribute>();
         }
 
-        void ExecuteCommand(string command)
+        public void ExecuteCommand(string command)
         {
            string? subCommand = null;
-           if(command == null) 
+           if(String.IsNullOrEmpty(command)) 
             {
                 Console.WriteLine($"Invalid command. Ignoring");
                 return; 
@@ -41,7 +41,7 @@ namespace RovingRobot.Handlers
             IBaseCommand commandClass = Helpers.ProgramUtilities.GetImplementingCommandClass(allCommands, command, RoverTheRovingRobot, _commandValidator);
             commandClass.ExecuteCommand(subCommand);
         }
-        internal void RunCommandList(List<string> commands)
+        public void RunCommandList(List<string> commands)
         {
             if (!allCommands.Any())
             {

@@ -35,8 +35,13 @@ namespace RovingRobot.Tests.Helpers
         [Fact]
         public void LoadCommandsFromFile_ReturnsAnEmptyListWhenFileIsNotFound()
         {
-            var result = _fileLoader.LoadCommandsFromFile("TestCommandSet_1421.txt");
+            System.IO.StringWriter output = new System.IO.StringWriter();
+            System.Console.SetOut(output);
+            string invalidFileName = "TestCommandSet_1421.txt";
+            var result = _fileLoader.LoadCommandsFromFile(invalidFileName);
 
+            var outputString = output.ToString();
+            Assert.Contains($"Error loading file: {invalidFileName}", outputString);
             Assert.Equal(result, new List<string>());
         }
     }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace RovingRobot.Commands
 {
     [Command("LEFT | RIGHT")]
-    internal class RotateCommand : IBaseCommand
+    public class RotateCommand : IBaseCommand
     {
         public Robot Robot { get; set; }
         public CommandValidator CommandValidator { get; set; }

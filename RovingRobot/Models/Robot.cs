@@ -25,7 +25,7 @@ namespace RovingRobot.Models
 
         public bool isDangerousMove(int currentBoardAxisPos, bool isMaxBoardCheck)
         {
-            int numToCheck = isMaxBoardCheck ? ProgramConstants.MAX_BOARD_WIDTH_HEIGHT : 1;
+            int numToCheck = isMaxBoardCheck ? ProgramConstants.MAX_BOARD_WIDTH_HEIGHT - 1 : 0;
             if (currentBoardAxisPos == numToCheck)
             {
                 Console.WriteLine("Beep Boop... This move looks dangerous.");
@@ -72,12 +72,12 @@ namespace RovingRobot.Models
             switch (FacingDirection)
             {
                 case ProgramConstants.FACE_NORTH_COMMAND:
-                    if(isDangerousMove(CurrentPosition.Item2, false))
+                    if(isDangerousMove(CurrentPosition.Item2, true))
                     {
                         return;
                     }
 
-                    CurrentPosition = new Tuple<int, int>(CurrentPosition.Item1, CurrentPosition.Item2-1);
+                    CurrentPosition = new Tuple<int, int>(CurrentPosition.Item1, CurrentPosition.Item2 + 1);
                     break;
                 case ProgramConstants.FACE_EAST_COMMAND:
                     if (isDangerousMove(CurrentPosition.Item1, true))
@@ -88,12 +88,12 @@ namespace RovingRobot.Models
                     CurrentPosition = new Tuple<int, int>(CurrentPosition.Item1 + 1, CurrentPosition.Item2);
                     break;
                 case ProgramConstants.FACE_SOUTH_COMMAND:
-                    if (isDangerousMove(CurrentPosition.Item2, true))
+                    if (isDangerousMove(CurrentPosition.Item2, false))
                     {
                         return;
                     }
 
-                    CurrentPosition = new Tuple<int, int>(CurrentPosition.Item1, CurrentPosition.Item2 + 1);
+                    CurrentPosition = new Tuple<int, int>(CurrentPosition.Item1, CurrentPosition.Item2 - 1);
                     break;
                 case ProgramConstants.FACE_WEST_COMMAND:
                     if (isDangerousMove(CurrentPosition.Item1, false))
