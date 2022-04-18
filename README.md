@@ -13,7 +13,8 @@ The list of commands that can be contained within the .txt file are:
 # Running the application
 To run RovingRobot, it is fairly simple, following the below steps should allow you to run the application successfully. 
 ```
-**Make sure you have the latest .NET 6 SDK installed to be able to run this command program successfully**
+If you are running this using the dotnet run command:
+Ensure you have the latest .NET 6 SDK installed, which can be found here: (https://dotnet.microsoft.com/en-us/download)
 ```
 * Firstly, download the latest release from here [Latest Release](https://github.com/David-Mimnagh/RovingRobot/releases/latest).
 * Once the file has been downloaded, extract it to a suibtable location.
@@ -22,3 +23,5 @@ To run RovingRobot, it is fairly simple, following the below steps should allow 
 * That's it!
 
 If you would like to Create your own command set and put Rover to the test, you can do so by creating a `.txt` file within the RovingRobot/Files/ subdirectory and then re-run the application.
+
+If you have any trouble with this, you should be able to open the .sln file in Visual studio and run the code with RovingRobot as the startup project.
