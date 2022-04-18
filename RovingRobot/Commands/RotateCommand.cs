@@ -27,7 +27,7 @@ namespace RovingRobot.Commands
                 Console.WriteLine("Ignoring ROTATION command, as Rover isn't in a valid position");
                 return;
             }
-            if (!CommandValidator.IsValidRotationCommand(subCommand))
+            if (subCommand == null || !CommandValidator.IsValidRotationCommand(subCommand))
             {
                 Console.WriteLine($"Ignoring ROTATION command, as {subCommand} is not valid");
                 return;

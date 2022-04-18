@@ -98,8 +98,8 @@ namespace RovingRobot.Tests.Helpers
         public void IsValidCommandList_ReturnsFalseWhenNullIsPassed()
         {
             var result = _commandValidator.IsValidCommandList(null);
-
-            Assert.Equal(result, false);
+            bool expected = false;
+            Assert.Equal(result, expected);
         }
 
         [Fact]
@@ -107,7 +107,8 @@ namespace RovingRobot.Tests.Helpers
         {
             var result = _commandValidator.IsValidCommandList(_testData.EmptyCommandList);
 
-            Assert.Equal(result, false);
+            bool expected = false;
+            Assert.Equal(result, expected);
         }
         [Fact]
         public void IsValidCommandList_ReturnsFalseWhenAListWithNoPlaceCommandIsPassed()
@@ -115,8 +116,9 @@ namespace RovingRobot.Tests.Helpers
             var result1 = _commandValidator.IsValidCommandList(_testData.InvalidCommandList1);
             var result2 = _commandValidator.IsValidCommandList(_testData.InvalidCommandList2);
 
-            Assert.Equal(result1, false);
-            Assert.Equal(result2, false);
+            bool expected = false;
+            Assert.Equal(result1, expected);
+            Assert.Equal(result2, expected);
         }
         [Fact]
         public void IsValidCommandList_ReturnsTrueWhenAValidListIsPassed()
@@ -124,8 +126,9 @@ namespace RovingRobot.Tests.Helpers
             var result1 = _commandValidator.IsValidCommandList(_testData.ValidCommandList1);
             var result2 = _commandValidator.IsValidCommandList(_testData.ValidCommandList2);
 
-            Assert.Equal(result1, true);
-            Assert.Equal(result2, true);
+            bool expected = true;
+            Assert.Equal(result1, expected);
+            Assert.Equal(result2, expected);
         }
     }
 }

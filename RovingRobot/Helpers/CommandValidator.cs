@@ -14,17 +14,17 @@ namespace RovingRobot.Helpers
             bool isValidY = y >= 0 && y < ProgramConstants.MAX_BOARD_WIDTH_HEIGHT;
             return (isValidX && isValidY);
         }
-        public bool IsValidRotationCommand(string rotation)
+        public bool IsValidRotationCommand(string? rotation)
         {
             return (rotation != null && ProgramConstants.ROTATIIONS.Contains(rotation));
         }
 
-        public bool IsValidDirectionCommand(string direction)
+        public bool IsValidDirectionCommand(string? direction)
         {
             return (direction != null && ProgramConstants.DIRECTIONS.Contains(direction));
         }
 
-        public bool IsValidPrimaryCommand(string primaryCommand)
+        public bool IsValidPrimaryCommand(string? primaryCommand)
         {
             return (primaryCommand != null && ProgramConstants.PRIMARY_COMMANDS.Contains(primaryCommand));
         }
@@ -32,7 +32,7 @@ namespace RovingRobot.Helpers
         {
             return (IsValidPosition(x,y) && IsValidDirectionCommand(direction));
         }
-        public bool IsValidCommandList(List<string> commandList)
+        public bool IsValidCommandList(List<string>? commandList)
         {
             return (commandList != null && commandList.Count > 0 && commandList.Any(command => command.Contains(ProgramConstants.PLACE_COMMAND)));
         }
