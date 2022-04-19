@@ -2,6 +2,8 @@
 Welcome to RovingRobot a simple .NET 6 console application that takes in a set of commands to move Rover the roving robot around a 5x5 table.
 This project is unit tested with Xunit.
 
+# Tickets/Work-board
+A simple board was created in [Notion.so](https://turquoise-cornflower-372.notion.site/fb18f9adbcd346be8832beecfe486c8b?v=224a078a21a44520ba8ffef4767d71e4) to manage the work for this project.
 # Commands 
 The list of commands that can be contained within the .txt file are:
 - `PLACE X,Y,FACING_DIRECTION` - This command places Rover at a given valid location on the board. (For example `PLACE 1,2,NORTH` places Rover at `x: 1`, `y: 2` facing `northward`.
